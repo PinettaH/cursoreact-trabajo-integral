@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Card, CardContent, CardMedia, Grid, Typography, Modal, Box } from "@mui/material";
+import DatePicker, { registerLocale } from 'react-datepicker';
+import es from 'date-fns/locale/es'
+import 'react-datepicker/dist/react-datepicker.css'
+import { Card, CardContent, CardMedia, Grid, Typography, Modal, Box, TextField } from "@mui/material";
 
 const modalStyle = {
     width: '80%',
@@ -69,6 +72,13 @@ export const FetchCursos = () => {
     }
 
 
+    const CustomDatePickerInput = ({ value, onClick }) => (
+        <TextField
+            variant="outlined"
+            value={value}
+            fullWidth
+        />
+    );
     const renderModal = () => {
         if (selectedCurso !== null) {
 
@@ -100,20 +110,27 @@ export const FetchCursos = () => {
                                 </Box>
                             </Grid>
                             <Grid item xs={12}>
-                                <Box bgcolor="#f9f9f9" p={2} borderRadius={4}>
-                                    <Typography variant="h5">
-                                        Fecha de inicio: {selectedCurso.fecha_inicio}
-                                        <br />
-                                        Precio: {selectedCurso.Precio}
-                                    </Typography>
-                                </Box>
-                            </Grid>
-                            <Grid item xs={12}>
                                 <Box bgcolor="#ebebeb" p={2} borderRadius={4}>
                                     <Typography variant="h5">
                                         Disponibilidad: {selectedCurso.disponible}
                                         <br />
                                         Instituto: {selectedCurso.instituto}
+                                    </Typography>
+                                </Box>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Box bgcolor="#f9f9f9" p={2} borderRadius={4}>
+                                    <Typography variant="h5">
+                                        Precio: {selectedCurso.precio}
+                                        <br />
+                                        Fecha de inicio:
+                                        <DatePicker
+                                            selected={selectedCurso.fecha_inicio}
+                                            dateFormat="Pp"
+                                            className="form-control"
+                                            showIcon
+                                            customInput={<CustomDatePickerInput />}
+                                        />
                                     </Typography>
                                 </Box>
                             </Grid>
