@@ -143,7 +143,7 @@ const Cursos = () => {
                                     <TextField name="titulo" value={selectedCurso.titulo} label="Titulo" onChange={handleChangeUpdate} />
                                     <TextField name="descripcion" value={selectedCurso.descripcion} variant="outlined" label="Descripcion" onChange={handleChangeUpdate} />
                                     <TextField name="instructor" value={selectedCurso.instructor} variant="outlined" label="instructor" onChange={handleChangeUpdate} />
-                                    <TextField name="duracion_horas" value={selectedCurso.duracion_horas} variant="outlined" label="Duracion en horas" type="number" onChange={handleChange} />
+                                    <TextField name="duracion_horas" value={selectedCurso.duracion_horas} variant="outlined" label="Duracion en horas" type="number" onChange={handleChangeUpdate} />
                                     <TextField name="precio" value={selectedCurso.precio} variant="outlined" label="Precio" type="number" onChange={handleChangeUpdate} />
                                     <TextField name="disponible" value={selectedCurso.disponible} variant="outlined" label="Disponibile Si/No" onChange={handleChangeUpdate} />
                                     <TextField name="instituto" value={selectedCurso.instituto} variant="outlined" label="Instituto" onChange={handleChangeUpdate} />
